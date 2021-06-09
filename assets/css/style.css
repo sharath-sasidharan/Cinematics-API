@@ -1,0 +1,615 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------
+  [Table of contents]
+  * To keep an overview of structure of your code, we make use of table of 
+  * content. Table of content is use display the overall tree structure of your
+  * Layout. 
+  * (NOTE: Remove this commented code once you start developing the code.
+  * Remove the following table of content and add your own as this is just and 
+  * example to let you know)
+
+  1. CSS Reset Code
+    1.1. Eric Meyers Reset/HTML5 display-role reset for older browsers
+    1.2. Clear Fix
+    1.3. Font class declaration
+  2. Body
+  3. Header / .header
+    2.1. Navigation / .navbar
+  4. Content / .content
+    4.1. Left column / .leftcolumn
+    4.2. Right column / .rightcolumn
+    4.3. Sidebar / .sidebar
+      4.3.1. RSS / .rss
+      4.3.2. Search / .search
+      4.3.3. Boxes / .box
+      4.3.4. Sideblog / .sideblog
+      4.3.5. Advertisements / .ads
+  5. Footer / .footer
+  ------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Color codes]
+  * Mention the color code you have used in your html document for the respective
+  * elements given as follow. 
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following color code and add your own as this is just and 
+  * example to let you know)
+
+  Header nav: #e5e5df (Cararra)
+  Header nav a (hover): #fff (white)
+  Header nav a (active): #fff (white)
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Typography]
+  * Mention the Typography you have used in your html document for the respective
+  * elements given as follow.
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following typography and add your own as this is just and 
+  * example to let you know)
+
+  Header nav a: 16px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  View-register li a : 12px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  -------------------------------------------------------------------*/
+
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================================================================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+
+.cf { *zoom: 1; }
+
+/* 1.3. Font class declaration
+   ========================================================================== */
+/*
+ * Mention the font property (eg: font-family, font-size, font-weight, font-style
+ * etc) that have been commonly used in the html document. Make a class of it and
+ * apply to the element wherever it is needed. If any single property in changed,
+ * then override only that property in the particular class which is used for the
+ * element.
+ * (NOTE: Remove this commented code once you start 
+ * developing the code. Remove the following font class and add your own
+ * as this is just and example to let you know. If there is only one font family
+ * followed throughout the site, then menstion the font property in body. No need
+ * of creating an extra class for it) */
+
+.futura-bold-font {
+  font-family: 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* CSS STARTS HERE */
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+a { text-decoration: none; }
+.caps { text-transform: uppercase; }
+.index-bg { background: #1f1f1f; }
+
+.login-bg {
+  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url(../images/bac.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  max-width:1350px;
+  width:90%;
+  margin:0 auto;
+}
+
+body {
+  min-height: 100vh;
+  margin:0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; 
+}
+
+/* HEADER STARTS HERE */
+header {
+  width:100%;
+  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.9)),url(../images/bac.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: -2px -2px 6px rgba(255,255,255,0.05),2px 5px 6px rgba(0,0,0,0.9) 
+}
+
+header > .wrapper {
+  padding:30px 0;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+header .wrapper a {
+  color:#706fd3;
+  font-family:sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+header .wrapper a span {
+  color:#fff;
+  font-size: 35px;
+}
+
+.search {
+  width: 500px; 
+  padding:10px 15px;
+  border:2px solid #2c3e50;
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),inset 2px 2px 6px rgba(0,0,0,0.8) ;
+  position: relative; 
+  color:#fff;
+  font-size: 16px;
+  font-family: inherit; 
+}
+
+.search:focus {
+  outline: none;
+  background: #1f1f1f;
+  color:#fff;
+  font-size: 20px;
+}
+
+::placeholder {
+  text-transform: capitalize;
+  color:#706fd3;
+  font-family: sans-serif;
+}
+
+header .wrapper .btn {
+  padding:8px 25px;
+  border:1px solid #34495e;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  -webkit-transition: .8s;
+  -o-transition: .8s;
+  transition: .8s;
+}
+
+.searchyear{
+  width: 200px; 
+  padding:10px 15px;
+  border:2px solid #2c3e50;
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),inset 2px 2px 6px rgba(0,0,0,0.8);
+  background:transparent ;
+  color:#fff;
+  font-size: 16px;
+  font-family: inherit; 
+}
+
+.searchyear:focus {
+  outline: none;
+  background: #1f1f1f;
+  color:#fff;
+  font-size: 20px;
+}
+
+/* HEADER ENDS HERE */ 
+
+/* MOVIE LISTING HERE STARTS */
+
+.movie-item {
+  margin:2% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.movie {
+  width: calc(100% / 4);
+  margin:3%;
+  border-radius: 3px;
+  -webkit-box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),inset 2px 2px 6px rgba(0,0,0,0.8);
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05), inset 2px 2px 6px rgba(0,0,0,0.8);
+  -webkit-transition: all 0.3s ease;  
+  -o-transition: all 0.3s ease;  
+  transition: all 0.3s ease; 
+}
+
+.movie img { width: 100%; }
+
+.movie_info {
+  padding:10%;
+  color:#eee;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase; 
+}
+
+.movie_info h3 { 
+  margin-bottom: 10%; 
+  font-size: 10px;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.btn {
+  padding:10px 20px;
+  margin:10px;
+  border:1px solid #706fd3;
+  position: relative;
+  background: none;
+  color:#fff;  
+  font-weight: 600;
+  font-family: sans-serif;   
+  cursor: pointer;
+  -webkit-transition: .8s;
+  -o-transition: .8s;
+  transition: .8s;
+  overflow: hidden;
+  font-size: 10px;
+}
+
+.btn::before {
+  content:'';
+  width:100%;
+  height: 0%;
+  position: absolute;
+  z-index: -1;
+  left:0;
+  background: #706fd3;   
+  -webkit-transition: .8s;   
+  -o-transition: .8s;   
+  transition: .8s;
+}
+
+.btn1::before {
+  border-radius: 0 0 50% 50%;
+  top:0;
+}
+
+/* MOVIE LISTING HERE ENDS */
+
+/* MODAL STARTS HERE */
+.movie-details {
+  max-width:700px;
+  width:100%;
+  height:90%;
+  padding: 0 5px 5px 5px;
+  border-radius:3px;
+  display: none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url(../images/bac.jpg);
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),inset 2px 2px 6px rgba(0,0,0,0.8) ;
+  transform: translate(-50%,-50%);
+}
+
+.movie-details-content {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.movie-details-content h3 {
+  margin-bottom: 2%;
+  color:#fff;
+  font-family: sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.movie-details-content .movie-overview {
+  padding:12px;
+  margin-bottom: 2%;
+  color:#fff;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align:center;
+}
+
+.movie-details-content  .movie_link a { color:#fff; }
+.movie-details-content  .movie_link a:focus{ color:#ff5252 }
+.grabMovies{ display:block; }
+
+.movie-close-btn {
+  width:35px;
+  height:35px;
+  border:none;
+  border-radius:50%;
+  outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position:absolute;
+  top:15px;
+  right:10px;
+  background:#fff;
+  color:#111;
+  font-size:20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  opacity:0.9;
+}
+
+.movie-close-btn::before {
+  content: '\f00d';
+  font: 900 15px "Font Awesome 5 Free";
+}
+
+/* MODAL ENDS HERE */
+
+/* LOGIN FORM STARTS HERE */
+.form {
+  width: 350px;
+  padding:40px 40px 60px;
+  border-radius: 10px;
+  background: #131419;
+  box-shadow: -5px -5px 10px rgba(255,255,255,0.05), 5px 5px 15px rgba(0,0,0,0.5) ;
+  text-align: center;
+}
+
+.form h2 {
+  color:#c7c7c7;
+  font-weight: 500;
+  letter-spacing: 4px; 
+  text-transform: uppercase;
+}
+
+.form .input {
+  margin-top:40px;
+  text-align: left;
+}
+
+.form .input .inputBox {  margin-top:20px; }
+
+.form .input .inputBox label {
+  margin-bottom: 2%;
+  display: block;
+  color:#868686;
+  font-size: 18px;
+}
+
+.form .input .inputBox input,button {
+  width:100%;
+  height: 50px;
+  padding: 5px 15px;
+  border:none;
+  border-radius: 40px;
+  outline: none;
+  background: #131419;   
+  color: #fff;
+  font-size: 18px;
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05), inset 2px 2px 6px rgba(0,0,0,0.8) }
+
+.form .input .inputBox button[type="submit"] {
+  margin-top: 20px;
+  box-shadow: -2px -2px 6px rgba(255,255,255,0.05),2px 2px 6px rgba(0,0,0,0.8) 
+}
+
+.form .input .inputBox button[type="submit"]:active {
+  margin-top: 20px;
+  color:#006c9c;
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.05),inset 2px 2px 6px rgba(0,0,0,0.8) 
+}
+
+.form .input .inputBox input::placeholder {
+  color:#555;
+  font-size: 18px;
+}
+
+/* LOGIN FORMS ENDS HERE */
+
+/* MEDIA QUERIES FOR HOVER 992px STARTS HERE */
+@media (min-width:992px) {
+
+    header .wrapper .btn:hover {
+      background: #706fd3;
+      color:#f5f6fa;
+      -webkit-transition: .8s;
+      -o-transition: .8s;
+      transition: .8s;
+    } 
+
+    .movie-close-btn:hover {
+      background-color:#706fd3;
+      color:#fff;
+      -webkit-transition: .8s;
+      -o-transition: .8s;
+      transition: .8s;
+    }
+  
+    .btn1:hover { color:#fff; }
+    .btn1:hover::before { height: 100%; }
+ 
+  }
+
+/* MEDIA QUERIES FOR HOVER 992px ENDS HERE */
+
+/* MEDIA QUERIES FOR HOVER 1184px STARTS HERE */
+@media(max-width:1184px) {
+  .search {
+      width: 100%;
+      max-width: 100%;
+  }
+}
+/* MEDIA QUERIES FOR HOVER 1184px ENDS HERE */
+
+/* MEDIA QUERIES FOR HOVER 1024px STARTS HERE */
+@media(max-width:1024px) {
+  header > .wrapper { flex-direction: column; }
+}
+/* MEDIA QUERIES FOR HOVER 1024px ENDS HERE */
+
+/* MEDIA QUERIES FOR 992px STARTS HERE */
+@media (max-width:992px) {
+  header > .wrapper a { font-size: 18px; }
+
+  .search {
+    width: 100%;
+    margin:8%;
+  }
+
+  .movie { width: calc(100% / 3); }  
+  .btn{ margin-top:3%; }
+}
+/* MEDIA QUERIES FOR 992px ENDS HERE */
+
+/* MEDIA QUERIES FOR 768px STARTS HERE */
+@media (max-width:768px) {  
+   
+  header { background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../images/bac.jpg); }
+  
+  header > .wrapper { 
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+  }
+
+  header > .wrapper a {
+      font-size: 15px; 
+      font-weight: 700;
+      letter-spacing: 8px;
+  }
+
+  .search {
+      width: 100%;
+      margin:5%;
+  }
+
+  .searchyear {  width: 100%; }
+
+  header .wrapper .btn {
+      font-size: 15px;
+      font-weight: 700;
+      transition: .8s;
+  }
+
+   .movie { width: 100%; } 
+
+}
+
+/* MEDIA QUERIES FOR 768px ENDS HERE */
+
+/* CSS ENDS HERE */
